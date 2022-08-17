@@ -1,0 +1,303 @@
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[AttendanceTable]    Script Date: 02/16/2021 00:20:13 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AttendanceTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[AttendanceDate] [date] NULL,
+	[Project] [nvarchar](50) NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[EmployeeName] [nvarchar](50) NULL,
+	[SalaryType] [nvarchar](50) NULL,
+	[Attendance] [nchar](1) NULL,
+	[Shift] [nvarchar](50) NULL,
+	[WorkHours] [int] NULL,
+	[OverTimeHours] [int] NULL,
+	[Remark] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[BusinessTable]    Script Date: 02/16/2021 00:20:37 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BusinessTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[BusinessName] [nvarchar](150) NULL,
+	[OwnerName] [nvarchar](200) NULL,
+	[GSTNumber] [nchar](16) NULL,
+	[MobileNo] [nchar](10) NULL,
+	[Mail] [nvarchar](50) NULL,
+	[Websites] [nvarchar](150) NULL,
+	[Address] [nvarchar](max) NULL,
+	[Remark] [nvarchar](max) NULL,
+	[BusinessLogo] [varbinary](max) NULL,
+	[ContentType] [nvarchar](50) NULL,
+	[EnterBy] [nvarchar](50) NULL,
+	[EnterOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[CityTable]    Script Date: 02/16/2021 00:20:44 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CityTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CityId] [nvarchar](50) NULL,
+	[CityName] [nvarchar](150) NULL,
+	[Province] [nvarchar](150) NULL,
+	[CreatedBy] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[DesignationTable]    Script Date: 02/16/2021 00:21:42 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DesignationTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Designation] [nvarchar](50) NULL,
+	[AnualLeaves] [int] NULL,
+	[AnualBonus] [int] NULL,
+	[Remark] [nvarchar](max) NULL,
+	[CreatedBy] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[EmployeeTable]    Script Date: 02/16/2021 00:21:47 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EmployeeTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[Tittle] [nvarchar](8) NULL,
+	[FirstName] [nvarchar](30) NULL,
+	[LastName] [nvarchar](30) NULL,
+	[FathersName] [nvarchar](30) NULL,
+	[CNIC] [nvarchar](30) NULL,
+	[AdharCard] [nvarchar](25) NULL,
+	[PANCard] [nvarchar](15) NULL,
+	[DateOfBirth] [date] NULL,
+	[Age] [int] NULL,
+	[Qualificattion] [nvarchar](50) NULL,
+	[Mail] [nvarchar](80) NULL,
+	[MobileNo] [nvarchar](10) NULL,
+	[Address] [nvarchar](max) NULL,
+	[DateOfJoin] [date] NULL,
+	[ProvinceId] [nvarchar](20) NULL,
+	[Status] [nvarchar](20) NULL,
+	[Project] [nvarchar](50) NULL,
+	[SalaryType] [nvarchar](50) NULL,
+	[Section] [nvarchar](50) NULL,
+	[Designation] [nvarchar](50) NULL,
+	[BasicSalary] [int] NULL,
+	[CurrentlySalary] [int] NULL,
+	[AnnualBounces] [int] NULL,
+	[AnnualLeaves] [int] NULL,
+	[DailyHours] [int] NULL,
+	[EOBI] [int] NULL,
+	[SESSI] [int] NULL,
+	[IncomeTax] [int] NULL,
+	[OtherDeducation] [int] NULL,
+	[Conveyance] [int] NULL,
+	[Medical] [int] NULL,
+	[Accommodation] [int] NULL,
+	[OtherAllowances] [int] NULL,
+	[NetSalary] [int] NULL,
+	[GrossSalary] [int] NULL,
+	[TotalDeduction] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[LoanTable]    Script Date: 02/16/2021 00:21:55 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LoanTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[EmployeeName] [nvarchar](50) NULL,
+	[Payment] [int] NULL,
+	[Intallment] [int] NULL,
+	[EMI] [int] NULL,
+	[Balance] [int] NULL,
+	[LoanDate] [date] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[ProjectTable]    Script Date: 02/16/2021 00:22:05 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ProjectTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProjectId] [nvarchar](50) NULL,
+	[ProjectName] [nvarchar](50) NULL,
+	[Remarks] [nvarchar](max) NULL,
+	[CreatedBy] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[SectionTable]    Script Date: 02/16/2021 00:22:25 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SectionTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SectionId] [nvarchar](50) NULL,
+	[SectionName] [nvarchar](50) NULL,
+	[Remark] [nvarchar](max) NULL,
+	[CreatedBy] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[UserTable]    Script Date: 02/16/2021 00:22:33 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Password] [nvarchar](10) NULL,
+	[UserRole] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[AdvanceTable]    Script Date: 02/16/2021 00:22:42 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AdvanceTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[EmployeeName] [nvarchar](50) NULL,
+	[Advance] [int] NULL,
+	[AdvanceDate] [date] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [PayrollManagementSystem]
+GO
+
+/** Object:  Table [dbo].[SalaryTable]    Script Date: 02/16/2021 00:22:50 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SalaryTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SalarySlipNo] [nvarchar](50) NULL,
+	[SalaryDate] [date] NULL,
+	[MonthYear] [date] NULL,
+	[Project] [nvarchar](50) NULL,
+	[EmployeeId] [nvarchar](50) NULL,
+	[EmployeeName] [nvarchar](max) NULL,
+	[CurrentSalary] [int] NULL,
+	[SalaryType] [nvarchar](50) NULL,
+	[WorkHours] [int] NULL,
+	[Absents] [int] NULL,
+	[Persents] [int] NULL,
+	[GrossSalary] [int] NULL,
+	[OverTimeHours] [int] NULL,
+	[NetSalary] [int] NULL,
+	[SalaryPayable] [int] NULL,
+	[Conveyance] [int] NULL,
+	[Medical] [int] NULL,
+	[Accommodation] [int] NULL,
+	[OtherAllowances] [int] NULL,
+	[TotalAllowances] [int] NULL,
+	[EOBI] [int] NULL,
+	[SESSI] [int] NULL,
+	[IncomeTax] [int] NULL,
+	[OtherDeducation] [int] NULL,
+	[TotalDeducation] [int] NULL,
+	[Loan] [int] NULL,
+	[Advance] [int] NULL
+) ON [PRIMARY]
+
+GO
